@@ -33,8 +33,8 @@ public class ClienteAdministradorService {
 				"Objeto não encontrado! Id: " + id + "Tipo: " + ClienteAdministrador.class.getName())); 
 	}
 	
-	public ClienteAdministrador insert(ClienteAdministrador cliente) {
-		return clienteAdministradorRepository.save(cliente);
+	public ClienteAdministrador insert(ClienteAdministrador clienteAdministrador) {
+		return clienteAdministradorRepository.save(clienteAdministrador);
 	}
 	
 	public ClienteAdministrador update(int id, ClienteAdministrador cliente) {

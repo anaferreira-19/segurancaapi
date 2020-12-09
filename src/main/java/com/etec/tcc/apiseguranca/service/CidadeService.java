@@ -3,6 +3,7 @@ package com.etec.tcc.apiseguranca.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -34,6 +35,14 @@ public class CidadeService {
 	
 	public Cidade insert(Cidade cidade) {
 		return cidadeRepository.save(cidade);
+	}
+	
+	public Cidade update(int id, Cidade cidade) {
+		Cidade cidadeSalva = find(id);
+
+		BeanUtils.copyProperties(cidade, cidadeSalva, "id");
+
+		return cidadeRepository.save(cidadeSalva);
 	}
 	
 	public void delete(Integer id) {

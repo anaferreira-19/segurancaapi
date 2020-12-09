@@ -38,11 +38,11 @@ public class CategoriaCelularService {
 	}
 	
 	public CategoriaCelular update(int id, CategoriaCelular categoriaCelular) {
-		CategoriaCelular categoriaSalva = find(id);
+		CategoriaCelular categoriaCelularSalva = find(id);
 		
-		BeanUtils.copyProperties(categoriaCelular, categoriaSalva, "id");
+		BeanUtils.copyProperties(categoriaCelular, categoriaCelularSalva, "id");
 		
-		return categoriaCelularRepository.save(categoriaSalva);
+		return categoriaCelularRepository.save(categoriaCelularSalva);
 	}
 	
 	public void delete(Integer id) {

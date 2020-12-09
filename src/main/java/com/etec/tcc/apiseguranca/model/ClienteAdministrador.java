@@ -1,11 +1,16 @@
 package com.etec.tcc.apiseguranca.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -73,6 +78,18 @@ public class ClienteAdministrador {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "clienteadministrador")
+	private List<Endereco> enderecos = new ArrayList<>();
+	
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
 	}
 
 	@Override

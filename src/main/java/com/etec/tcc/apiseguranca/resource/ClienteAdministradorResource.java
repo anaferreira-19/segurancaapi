@@ -46,10 +46,10 @@ public class ClienteAdministradorResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> insert(@RequestBody ClienteAdministrador cliente){
-		cliente = clienteAdministradorService.insert(cliente);
+	public ResponseEntity<Void> insert(@RequestBody ClienteAdministrador clienteAdministrador){
+		clienteAdministrador = clienteAdministradorService.insert(clienteAdministrador);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{Id}").buildAndExpand(cliente.getId()).toUri();
+				.path("/{Id}").buildAndExpand(clienteAdministrador.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 	

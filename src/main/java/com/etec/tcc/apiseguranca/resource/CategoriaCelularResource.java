@@ -44,10 +44,10 @@ public class CategoriaCelularResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> insert(@RequestBody CategoriaCelular categoria){
-		categoria = categoriaCelularService.insert(categoria);
+	public ResponseEntity<Void> insert(@RequestBody CategoriaCelular categoriaCelular){
+		categoriaCelular = categoriaCelularService.insert(categoriaCelular);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{Id}").buildAndExpand(categoria.getId()).toUri();
+				.path("/{Id}").buildAndExpand(categoriaCelular.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 	
@@ -59,10 +59,10 @@ public class CategoriaCelularResource {
 	
 	@PutMapping("{id}")
 	public ResponseEntity<CategoriaCelular> update(@PathVariable Integer id, 
-			@RequestBody CategoriaCelular categoria){
+			@RequestBody CategoriaCelular categoriaCelular){
 		try {
-			CategoriaCelular categoriaSalva = categoriaCelularService.update(id, categoria);
-			return ResponseEntity.ok(categoriaSalva);
+			CategoriaCelular categoriaCelularSalva = categoriaCelularService.update(id, categoriaCelular);
+			return ResponseEntity.ok(categoriaCelularSalva);
 		} catch (IllegalArgumentException e){
 			return ResponseEntity.notFound().build();
 		}

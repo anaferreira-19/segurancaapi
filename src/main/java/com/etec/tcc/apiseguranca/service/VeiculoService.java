@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.etec.tcc.apiseguranca.model.Veiculo;
@@ -20,7 +21,7 @@ public class VeiculoService {
 	private VeiculoRepository veiculoRepository;
 	
 	public List<Veiculo> listarVeiculos(){
-		return veiculoRepository.findAll();
+		return veiculoRepository.findAll(Sort.by(Sort.Direction.ASC,"nome"));
 	}
 	
 	public Page<Veiculo> pesquisar(String nome, Pageable pageable){
